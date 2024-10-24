@@ -1,4 +1,29 @@
-## Assignment 1 - Problem Statment
+## Assignment 1 
+
+## Test Case Results
+
+The solution has successfully passed all test cases. Below are the details:
+
+1. An Express instance should be exported from the `app.js` file using the default export syntax.
+
+2. The GET request with path `/players/` should return the list of all the players in the team as a response.
+
+3. The GET request with path `/players/:playerId/` should return the details of a particular player in the team as a response.
+
+4. The POST request with path `/players/` should return the "Player Added to Team" text as a response to the success of the request.
+
+5. The database should be updated on the POST request.
+
+6. The PUT request with path `/players/:playerId/` should return "Player Details Updated" text as a response to the success of the request.
+
+7. The database should be updated on the PUT request.
+
+8. The DELETE request with path `/players/:playerId/` should return "Player Removed" text as a response to the success of the request.
+
+9. The database should be updated on the DELETE request.
+
+
+## Problem Statment
 # Cricket Team
 
 Given two files `app.js` and a database file `cricketTeam.db` consisting a table `cricket_team`.
