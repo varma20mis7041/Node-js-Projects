@@ -1,41 +1,31 @@
 ### Test Case Results
 The solution has successfully passed all test cases. Below are the details:
 
-- **Express Instance Export**: An Express instance should be exported from the `app.js` file using the default export syntax.  
-  - _Time_: 2 ms
+- **Express Instance Export**: An Express instance should be exported from the `app.js` file using the default export syntax.
 
-- **GET /movies/**: The GET request with path `/movies/` should return the list of all movie names in the movies database as a response.  
-  - _Time_: 46 ms
+- **GET /movies/**: The GET request with path `/movies/` should return the list of all movie names in the movies database as a response.
 
-- **GET /movies/:movieId/**: The GET request with path `/movies/:movieId/` should return the details of a specific movie in the movies database as a response.  
-  - _Time_: 9 ms
+- **GET /movies/:movieId/**: The GET request with path `/movies/:movieId/` should return the details of a specific movie in the movies database as a response.
 
-- **POST /movies/**: The POST request with path `/movies/` should return "Movie Successfully Added" text as a response to the success of the request.  
-  - _Time_: 16 ms
+- **POST /movies/**: The POST request with path `/movies/` should return "Movie Successfully Added" text as a response to the success of the request.
 
-- **Database Update (POST)**: The database should be updated on the POST request.  
-  - _Time_: 2 ms
+- **Database Update (POST)**: The database should be updated on the POST request.
 
-- **PUT /movies/:movieId/**: The PUT request with path `/movies/:movieId/` should return "Movie Details Updated" text as a response to the success of the request.  
-  - _Time_: 5 ms
+- **PUT /movies/:movieId/**: The PUT request with path `/movies/:movieId/` should return "Movie Details Updated" text as a response to the success of the request.
 
-- **Database Update (PUT)**: The database should be updated on the PUT request.  
-  - _Time_: 1 ms
+- **Database Update (PUT)**: The database should be updated on the PUT request.
 
-- **DELETE /movies/:movieId/**: The DELETE request with path `/movies/:movieId/` should return "Movie Removed" text as a response to the success of the request.  
-  - _Time_: 3 ms
+- **DELETE /movies/:movieId/**: The DELETE request with path `/movies/:movieId/` should return "Movie Removed" text as a response to the success of the request.
 
-- **Database Update (DELETE)**: The database should be updated on the DELETE request.  
-  - _Time_: 0 ms
+- **Database Update (DELETE)**: The database should be updated on the DELETE request.
 
-- **GET /directors/**: The GET request with path `/directors/` should return the list of all the directors in the movies database as a response.  
-  - _Time_: 3 ms
+- **GET /directors/**: The GET request with path `/directors/` should return the list of all the directors in the movies database as a response.
 
-- **GET /directors/:directorId/movies/**: The GET request with path `/directors/:directorId/movies/` should return the list of all movie names directed by a specific director as a response to the success of the request.  
-  - _Time_: 6 ms
+- **GET /directors/:directorId/movies/**: The GET request with path `/directors/:directorId/movies/` should return the list of all movie names directed by a specific director as a response to the success of the request.
+
 
 # Assignment Details
-## Movies -
+## Movies
 
 Given two files `app.js` and a database file `moviesData.db` consisting of two tables `movie` and `director`.
 
