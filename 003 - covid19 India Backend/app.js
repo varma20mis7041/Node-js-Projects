@@ -140,7 +140,8 @@ app.put("/districts/:districtId/", async (request, response) => {
 app.get("/states/:stateId/stats/", async (request, response) => {
   const { stateId } = request.params;
   const getStats = `
-    Select sum(cases) as totalCases , 
+    Select 
+      sum(cases) as totalCases , 
       sum(cured) as totalCured,
       sum(active) as totalActive, 
       sum(deaths) as totalDeaths
