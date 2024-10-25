@@ -38,7 +38,9 @@ The solution has successfully passed all test cases. Below are the details:
 12. **Database Update (DELETE)**  
     ◦ The database should be updated on the DELETE request.
 
-#Assignment Instructions
+    
+
+# Assignment Instructions
 
 ## Covid-19 India
 
