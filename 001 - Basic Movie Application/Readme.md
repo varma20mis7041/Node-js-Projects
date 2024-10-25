@@ -24,7 +24,7 @@ The solution has successfully passed all test cases. Below are the details:
 - **GET /directors/:directorId/movies/**: The GET request with path `/directors/:directorId/movies/` should return the list of all movie names directed by a specific director as a response to the success of the request.
 
 
-# Assignment Details
+# Assignment Instructions
 ## Movies
 
 Given two files `app.js` and a database file `moviesData.db` consisting of two tables `movie` and `director`.
