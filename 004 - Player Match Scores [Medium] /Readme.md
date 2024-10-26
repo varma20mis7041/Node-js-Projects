@@ -1,6 +1,6 @@
 
 
-# Assignment Instructions
+# Assignment instructions given to me
 ## Player Match Scores
 
 Given two files `app.js` and a database file `cricketMatchDetails.db` consisting of three tables `player_details`, `match_details` and `player_match_score`.
