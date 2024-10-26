@@ -1,0 +1,130 @@
+const express = require("express");
+const app = express();
+app.use(express.json());
+
+const { open } = require("sqlite");
+const sqlite3 = require("sqlite3");
+
+const path = require("path");
+const databasePath = path.join(__dirname, "cricketMatchDetails.db");
+const setupDatabaseAndServer = async () => {
+  try {
+    db = await open({
+      filename: databasePath,
+      driver: sqlite3.Database,
+    });
+    app.listen(3004, () => {
+      console.log("server started");
+    });
+  } catch (error) {
+    console.log(`Error in db ${error}`);
+  }
+};
+
+// API 1: Get all players
+// Retrieves a list of all players, each represented with their unique ID and name.
+app.get("/players/", async (request, response) => {
+  const getAllPlayers = `
+    select player_id as playerId,player_name as playerName from player_details;
+  `;
+  const players = await db.all(getAllPlayers);
+  response.send(players);
+});
+
+// API 2: Get a specific player by ID
+// Retrieves details for a specific player identified by playerId, returning the player’s unique ID and name.
+app.get("/players/:playerId/", async (request, response) => {
+  const { playerId } = request.params;
+  const getSinglePlayer = `
+    select * from player_details where player_id = ${playerId}
+  `;
+  const getSinglePlayerResponse = await db.get(getSinglePlayer);
+  response.send({
+    playerId: getSinglePlayerResponse.player_id,
+    playerName: getSinglePlayerResponse.player_name,
+  });
+});
+
+// API 3: Update player details by ID
+// Updates the name of a specific player, identified by playerId, with new data provided in the request body.
+app.put("/players/:playerId/", async (request, response) => {
+  const { playerId } = request.params;
+  const playerDetails = request.body;
+  const { playerName } = playerDetails;
+  const updateSinglePlayer = `
+    update player_details set 
+    player_name = '${playerName}' 
+    where player_id = ${playerId}
+  `;
+  await db.run(updateSinglePlayer);
+  response.send("Player Details Updated");
+});
+
+// API 4: Get match details by match ID
+// Retrieves details for a specific match, identified by matchId, returning match ID, name, and year.
+app.get("/matches/:matchId/", async (request, response) => {
+  const { matchId } = request.params;
+  const getMatchDetails = `
+    select * from match_details where match_id = ${matchId}
+  `;
+  const match = await db.get(getMatchDetails);
+  response.send({
+    matchId: match.match_id,
+    match: match.match,
+    year: match.year,
+  });
+});
+
+// API 5: Get all matches played by a specific player
+// Retrieves all matches that a specific player, identified by playerId, has played. Returns match ID, match name, and year.
+app.get("/players/:playerId/matches", async (request, response) => {
+  const { playerId } = request.params;
+  const playerMatchQuery = `
+    select match_details.match_id as matchId,match,year 
+    from 
+      match_details inner join player_match_score on 
+      match_details.match_id = player_match_score.match_id
+    where player_match_score.player_id = ${playerId}
+  `;
+  const matchDetails = await db.all(playerMatchQuery);
+  response.send(matchDetails);
+});
+
+// API 6: Get all players in a specific match
+// Retrieves all players who participated in a specific match, identified by matchId, returning each player’s ID and name.
+app.get("/matches/:matchId/players", async (request, response) => {
+  const { matchId } = request.params;
+  const getPlayer = `
+    select player_details.player_id as playerId,
+    player_details.player_name as playerName 
+    from player_details inner join player_match_score 
+    on player_details.player_id = player_match_score.player_id 
+    where player_match_score.match_id = ${matchId}
+   `;
+  const playerDetails = await db.all(getPlayer);
+  response.send(playerDetails);
+});
+
+// API 7: Get player stats by player ID
+// Retrieves cumulative statistics for a player, including total score, total fours, and total sixes, based on their playerId.
+app.get("/players/:playerId/playerScores", async (request, response) => {
+  const { playerId } = request.params;
+  const getStats = `
+    select 
+     player_details.player_id as playerId, 
+     player_details.player_name as playerName,
+     sum(score) as totalScore,
+     sum(fours) as totalFours,
+     sum(sixes) as totalSixes
+    from 
+      player_match_score inner join player_details on 
+      player_match_score.player_id = player_details.player_id
+    where player_match_score.player_id = ${playerId}
+  `;
+  const playerStats = await db.get(getStats);
+  response.send(playerStats);
+});
+
+setupDatabaseAndServer();
+
+module.exports = app;
