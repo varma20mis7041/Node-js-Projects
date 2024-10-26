@@ -1,0 +1,25 @@
+GET http://localhost:3004/players HTTP/1.1
+
+### 
+GET http://localhost:3004/players/4 HTTP/1.1
+
+### 
+PUT http://localhost:3004/players/4 HTTP/1.1
+Content-Type: application/json
+
+{
+  "playerName": "Bhargav"
+}
+
+### 
+GET http://localhost:3004/matches/18 HTTP/1.1
+
+### 
+GET http://localhost:3004/players/1/matches
+
+### 
+GET http://localhost:3004/matches/10/players HTTP/1.1
+
+###
+
+GET http://localhost:3004/players/3/playerScores HTTP/1.1
