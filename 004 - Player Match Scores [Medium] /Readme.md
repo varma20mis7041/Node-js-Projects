@@ -1,3 +1,33 @@
+# Test Case Results
+
+The solution has successfully passed all test cases. Below are the details:
+
+1. **Express Instance Export**  
+   ◦ An Express instance should be exported from the `app.js` file using the default export syntax.
+
+2. **GET /players/**  
+   ◦ The GET request with path `/players/` should return the list of all players in the `player_details` table as a response.
+
+3. **GET /players/:playerId/**  
+   ◦ The GET request with path `/players/:playerId/` should return the details of a specific player in the `player_details` table as a response.
+
+4. **PUT /players/:playerId/**  
+   ◦ The PUT request with path `/players/:playerId/` should return "Player Details Updated" text as a response upon success.
+
+5. **Database Update (PUT)**  
+   ◦ The database should be updated on the PUT request.
+
+6. **GET /matches/:matchId/**  
+   ◦ The GET request with path `/matches/:matchId/` should return the details of a specific match in the `match_details` table as a response.
+
+7. **GET /players/:playerId/matches**  
+   ◦ The GET request with path `/players/:playerId/matches` should return the list of all matches associated with a player as a response.
+
+8. **GET /matches/:matchId/players**  
+   ◦ The GET request with path `/matches/:matchId/players` should return the list of all players in a match as a response.
+
+9. **GET /players/:playerId/playerScores**  
+   ◦ The GET request with path `/players/:playerId/playerScores` should return the player details along with the total score, number of fours, and sixes of a player as a response.
 
 
 # Assignment instructions given to me
