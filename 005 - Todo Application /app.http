@@ -1,0 +1,48 @@
+GET http://localhost:3004/todos/?status=TO%20DO HTTP/1.1
+
+###
+GET http://localhost:3004/todos/?priority=HIGH 
+
+###
+
+GET http://localhost:3004/todos/?priority=HIGH&status=IN%20PROGRESS
+###
+GET http://localhost:3004/todos/?search_q=Weekly HTTP/1.1
+
+###
+GET http://localhost:3004/todos/16
+
+### 
+POST http://localhost:3004/todos/ HTTP/1.1
+Content-Type: application/json 
+
+{
+  "id": 26,
+  "todo": "Finalize event theme",
+  "priority": "LOW",
+  "status": "TO DO"
+}
+
+### 
+
+PUT http://localhost:3004/todos/26 HTTP/1.1
+Content-Type: application/json 
+
+{ "status": "DONE" } 
+
+###
+PUT http://localhost:3004/todos/26 HTTP/1.1
+Content-Type: application/json 
+
+{ "priority": "HIGH" } 
+
+###
+
+PUT http://localhost:3004/todos/26 HTTP/1.1
+Content-Type: application/json 
+
+{ "todo": "Finalize event design" } 
+
+
+### 
+DELETE http://localhost:3004/todos/16
