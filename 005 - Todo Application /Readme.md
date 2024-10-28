@@ -1,3 +1,49 @@
+# Test Case Results
+
+The solution has successfully passed all test cases. Below are the details:
+
+1. **Express Instance Export**  
+   ◦ An Express instance should be exported from the `app.js` file using the default export syntax.
+
+2. **GET /todos/?status=TO%20DO**  
+   ◦ The GET request with path `/todos/?status=TO%20DO` should return the list of all todos whose status is `TO DO` as a response.
+
+3. **GET /todos/?priority=HIGH**  
+   ◦ The GET request with path `/todos/?priority=HIGH` should return the list of all todos whose priority is `HIGH` as a response.
+
+4. **GET /todos/?priority=HIGH&status=IN%20PROGRESS**  
+   ◦ The GET request with path `/todos/?priority=HIGH&status=IN%20PROGRESS` should return the list of all todos whose priority is `HIGH` and status is `IN PROGRESS` as a response.
+
+5. **GET /todos/?search_q=Play**  
+   ◦ The GET request with path `/todos/?search_q=Play` should return the list of all todos containing the text `Play` as a response.
+
+6. **GET /todos/:todoId/**  
+   ◦ The GET request with path `/todos/:todoId/` should return a specific todo based on the `todoId` as a response.
+
+7. **POST /todos/**  
+   ◦ The POST request with path `/todos/` should return the "Todo Successfully Added" text as a response upon success.
+
+8. **Database Update (POST)**  
+   ◦ The database should be updated on the POST request.
+
+9. **PUT /todos/:todoId/ (Status Update)**  
+   ◦ The PUT request with path `/todos/:todoId/` with `status` property in the body should return the "Status Updated" text as a response upon success.
+
+10. **PUT /todos/:todoId/ (Priority Update)**  
+    ◦ The PUT request with path `/todos/:todoId/` with `priority` property in the body should return the "Priority Updated" text as a response upon success.
+
+11. **PUT /todos/:todoId/ (Todo Update)**  
+    ◦ The PUT request with path `/todos/:todoId/` with `todo` property in the body should return the "Todo Updated" text as a response upon success.
+
+12. **Database Update (PUT)**  
+    ◦ The database should be updated on the PUT request.
+
+13. **DELETE /todos/:todoId/**  
+    ◦ The DELETE request with path `/todos/:todoId/` should return the "Todo Deleted" text as a response upon success.
+
+14. **Database Update (DELETE)**  
+    ◦ The database should be updated on the DELETE request.
+
 # Assignment Instructions
 ## Todo Application
 
