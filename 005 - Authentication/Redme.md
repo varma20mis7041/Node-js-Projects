@@ -1,4 +1,52 @@
-# Authentication
+Authentication 
+
+## Test Case Results
+
+The solution has successfully passed all test cases. Below are the details:
+
+1. **Express Instance Export**  
+   - An Express instance should be exported from the `app.js` file using the default export syntax.
+
+2. **POST /register (Existing User Check)**  
+   - The POST request with path `/register` should return "User already exists" as a response if the username already exists.
+
+3. **User Creation Prevention (Existing User)**  
+   - A user should not be created if the username already exists in the database.
+
+4. **POST /register (Password Length Check)**  
+   - The POST request with path `/register` should return "Password is too short" as a response if the registrant provides a password with less than 5 characters.
+
+5. **POST /register (Successful Registration)**  
+   - The POST request with path `/register` should return "User created successfully" text as a response for a successful registration.
+
+6. **Password Encryption**  
+   - The password should be encrypted before creating a user in the database.
+
+7. **User Creation (Database Update)**  
+   - The user should be created in the database upon the success of the request with path `/register`.
+
+8. **POST /login (Invalid User)**  
+   - The POST request with path `/login` should return "Invalid user" text as a response for an unregistered user.
+
+9. **POST /login (Invalid Password)**  
+   - The POST request with path `/login` should return "Invalid password" text as a response if the user provides an incorrect password.
+
+10. **POST /login (Login Success)**  
+    - The POST request with path `/login` should return "Login success!" text as a response if the user provides correct credentials.
+
+11. **PUT /change-password (Invalid Current Password)**  
+    - The PUT request with path `/change-password` should return "Invalid current password" text as a response if the user provides an incorrect current password.
+
+12. **PUT /change-password (New Password Length Check)**  
+    - The PUT request with path `/change-password` should return "Password is too short" text as a response if the user provides a new password with less than 5 characters.
+
+13. **PUT /change-password (Successful Update)**  
+    - The PUT request with path `/change-password` should return "Password updated" text as a response for a successful password update.
+
+14. **New Password Encryption**  
+    - The new password should be encrypted and added to the database.
+
+# Assignment instructions
 
 Given an `app.js` file and a database file `userData.db` consisting of a  table `user`.
 
